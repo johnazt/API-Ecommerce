@@ -1,5 +1,5 @@
 const db = require("../utils/database");
-const { Users, Products, Cart, Orders } = require("../models");
+const { Users, Products, Cart, Orders, ProductsInCart, ProductsInOrder } = require("../models");
 const initModels = require("../models/initModels");
 
 initModels();
@@ -26,6 +26,16 @@ const order = [
 	{ userId: 3, status: "pendiente" }
 ];
 
+const productsInCart = [
+    { cartId: 1, productId: 1, quantity: 3, price: 200}
+]
+
+const productsInOrder = [
+    { orderId: 1, productId: 1, quantity: 3, price: 200},
+    { orderId: 1, productId: 2, quantity: 1, price: 400},
+    { orderId: 1, productId: 4, quantity: 1, price: 400}
+]
+
 db.sync({ force: false }).then(() => {
 	console.log("Sincronizado");
 	users.forEach(async user => await Users.create(user));
@@ -38,4 +48,10 @@ db.sync({ force: false }).then(() => {
 	setTimeout(() => {
 		order.forEach(async orderItem => await Orders.create(orderItem));
 	}, 300);
+	setTimeout(() => {
+		productsInCart.forEach(async pic => await ProductsInCart.create(pic));
+	}, 400);
+	setTimeout(() => {
+		productsInOrder.forEach(async pio => await ProductsInOrder.create(pio));
+	}, 400);
 });

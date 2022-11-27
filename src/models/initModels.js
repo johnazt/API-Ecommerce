@@ -25,12 +25,12 @@ const initModels = () => {
 	Cart.hasMany(ProductsInCart, { as: "productsInCart", foreignKey: "cart_id" });
 
 	//Un ProductInCart puede tener un producto y pertenece a un carrito
-	Products.belongsTo(ProductsInCart, {
-		as: "productsInCart",
+	ProductsInCart.belongsTo(Products, {
+		as: "products",
 		foreignKey: "product_id"
 	});
-	ProductsInCart.hasMany(Products, {
-		as: "products",
+	Products.hasMany(ProductsInCart, {
+		as: "productsInCart",
 		foreignKey: "product_id"
 	});
 
@@ -41,13 +41,13 @@ const initModels = () => {
 		foreignKey: "order_id"
 	});
 
-	//Un ProductInOrder tiene un producto y pertenece a una orden
-	Products.belongsTo(ProductsInOrder, {
-		as: "productsInOrder",
+	// //Un ProductInOrder tiene un producto y pertenece a una orden
+	ProductsInOrder.belongsTo(Products, {
+		as: "products",
 		foreignKey: "product_id"
 	});
-	ProductsInOrder.hasMany(Products, {
-		as: "products",
+	Products.hasMany(ProductsInOrder, {
+		as: "productsInOrder",
 		foreignKey: "product_id"
 	});
 };
