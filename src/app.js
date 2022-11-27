@@ -5,6 +5,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
+const { userRoutes } = require("./routes")
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -25,5 +26,8 @@ db
 app.get("/", (req, res) => {
 	console.log("Welcome to the server");
 });
+
+app.use("/api/v1", userRoutes)
+
 app.use(handleError);
 module.exports = app;

@@ -70,6 +70,7 @@ const Users = db.define(
     },
   },
   {
+    timestamps: false,
     hooks: {
       beforeCreate: (user, options) => {
         const { password } = user;
@@ -77,7 +78,7 @@ const Users = db.define(
         user.password = hash;
       },
     },
-  }
+  }, 
 );
 
 module.exports = Users
