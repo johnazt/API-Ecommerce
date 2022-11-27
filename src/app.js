@@ -3,11 +3,14 @@ const morgan = require("morgan");
 const app = express();
 const cors = require("cors");
 const db = require("./utils/database");
+const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
 
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
+
+initModels()
 
 db
 	.authenticate()
@@ -15,7 +18,7 @@ db
 	.catch(error => console.log(error));
 
 db
-	.sync({ force: true })
+	.sync({ force: false})
 	.then(() => console.log("Database is sincronized"))
 	.catch(error => console.log(error));
 
