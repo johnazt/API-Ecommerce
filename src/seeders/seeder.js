@@ -36,7 +36,7 @@ const productsInOrder = [
     { orderId: 1, productId: 4, quantity: 1, price: 400}
 ]
 
-db.sync({ force: false }).then(() => {
+db.sync({ force: true }).then(() => {
 	console.log("Sincronizado");
 	users.forEach(async user => await Users.create(user));
 	setTimeout(() => {

@@ -6,12 +6,12 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Clon de un chat en node js",
+      title: "Documentación Ecommerce API",
       version: "1.0.0",
-      description: "API que sirve para crear una aplicación de mensajería.",
+      description: "API que sirve para crear una base de datos para ecommerce",
     },
   },
-//   apis: ["./src/routes/users.routes.js", "./src/models/users.models.js"],
+  apis: ["./src/routes/users.routes.js", "./src/models/users.models.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

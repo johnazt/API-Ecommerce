@@ -8,10 +8,10 @@ const router = Router();
  * @openapi
  * /api/v1/users:
  *   post:
- *     summary: Register a new user into the app
+ *     summary: Registro de nuevo usuario en el ecommerce
  *     tags: [Users]
  *     requestBody:
- *       description: To register a new user you need a firstname, lastname, email, phone and password
+ *       description: To register a new user you need a username, email and password
  *       required: true
  *       content:
  *         application/json:

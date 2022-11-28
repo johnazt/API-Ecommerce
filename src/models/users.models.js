@@ -9,33 +9,24 @@ const bcrypt = require("bcrypt");
  *     users:
  *       type: object
  *       properties:
- *         firstname:
+ *         username: 
  *           type: string
- *           example: Ian
- *         lastname:
- *           type: string
- *           example: Rosas
+ *           example: New User
  *         email:
  *           type: string
- *           example: ian@gmail.com
+ *           example: user@gmail.com
  *     register:
  *       type: object
  *       properties:
- *         firstname:
+ *         username:
  *           type: string
- *           example: Ian
- *         lastname:
- *           type: string
- *           example: Rosas
+ *           example: New User
  *         email:
  *           type: string
- *           example: ian@gmail.com
- *         phone:
- *           type: string
- *           example: 0000000000
+ *           example: user@gmail.com
  *         password:
  *           type: string
- *           example: 1234
+ *           example: 234jkhg54
  *   securitySchemes:
  *     bearerAuth:
  *       type: http
