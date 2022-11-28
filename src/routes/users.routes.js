@@ -1,6 +1,5 @@
 const { Router } = require("express");
-const { userRegister, getAllUser } = require("../controllers");
-// const authenticate = require("../middlewares/auth.middleware");
+const { userRegister } = require("../controllers");
 
 const router = Router();
 
@@ -9,9 +8,9 @@ const router = Router();
  * /api/v1/users:
  *   post:
  *     summary: Registro de nuevo usuario en el ecommerce
- *     tags: [Users]
+ *     tags: [User Register]
  *     requestBody:
- *       description: To register a new user you need a username, email and password
+ *       description: To register a new user you need a username,    email and password
  *       required: true
  *       content:
  *         application/json:
@@ -31,11 +30,10 @@ const router = Router();
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: "#/components/schemas/users"
+ *                     $ref: "#/components/schemas/register"
  *
  */
 
 router.post("/users", userRegister);
-// router.get("/users", getAllUser);
 
 module.exports = router;

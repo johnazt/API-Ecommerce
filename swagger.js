@@ -11,7 +11,12 @@ const options = {
       description: "API que sirve para crear una base de datos para ecommerce",
     },
   },
-  apis: ["./src/routes/users.routes.js", "./src/models/users.models.js"],
+  apis: [
+    "./src/routes/users.routes.js",
+    "./src/routes/auth.routes.js",
+    "./src/routes/products.routes.js",
+    "./src/models/users.models.js"
+  ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

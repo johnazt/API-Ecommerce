@@ -6,15 +6,15 @@ const bcrypt = require("bcrypt");
  * @openapi
  * components:
  *   schemas:
- *     users:
+ *     login:
  *       type: object
  *       properties:
- *         username: 
- *           type: string
- *           example: New User
- *         email:
- *           type: string
- *           example: user@gmail.com
+ *          email: 
+ *            type: string
+ *            example: user@gmail.com
+ *          password: 
+ *            type: string
+ *            example: 1234sdf
  *     register:
  *       type: object
  *       properties:
@@ -28,7 +28,7 @@ const bcrypt = require("bcrypt");
  *           type: string
  *           example: 234jkhg54
  *   securitySchemes:
- *     bearerAuth:
+ *     bearerAuth: 
  *       type: http
  *       scheme: bearer
  *       bearerFormat: JWT
