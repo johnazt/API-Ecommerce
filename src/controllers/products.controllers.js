@@ -13,18 +13,18 @@ const getAllProducts = async (req, res, next) => {
   }
 };
 
-// const createNewProduct = async (req, res, next) => {
-//   try {
-//     const newProduct = req.body;
-//     const result = await ProductServices.create(newProduct);
-//     res.status(201).json({ message: "New product was created succesfuly" });
-//   } catch (error) {
-//     next({
-//       status: 400,
-//       errorContent: error,
-//       message: "Oops, something went wrong, verify the submitted data",
-//     });
-//   }
-// };
+const createNewProduct = async (req, res, next) => {
+  try {
+    const newProduct = req.body;
+    const result = await ProductServices.createProduct(newProduct);
+    res.json(result)
+  } catch (error) {
+    next({
+      status: 400,
+      errorContent: error,
+      message: "missing data",
+    });
+  }
+};
 
-module.exports = { getAllProducts };
+module.exports = { getAllProducts , createNewProduct};

@@ -1,6 +1,33 @@
 const db = require("../utils/database");
 const { DataTypes } = require("sequelize");
 
+/**
+ *@openapi
+ *components:
+ *    schemas:
+ *     product:
+ *       type: object
+ *       properties:
+ *           name: 
+ *             type: string
+ *             example: Lenovo Monitor
+ *           price: 
+ *             type: integer
+ *             example: 2000
+ *           availableQty:
+ *             type: integer
+ *             example: 100
+ *           userId:
+ *             type: integer
+ *             example: 1
+ *securitySchemes:
+ *     bearerAuth: 
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ */
+
+
 const Products = db.define(
 	"products",
 	{
@@ -22,8 +49,8 @@ const Products = db.define(
 			type: DataTypes.INTEGER
 		},
 		status: {
-			type: DataTypes.STRING,
-			defaultValue: "in stock"
+			type: DataTypes.ENUM("In Stock", "Not in Stock"),
+			defaultValue: "In Stock"
 		},
 		userId: {
 			type: DataTypes.INTEGER,
@@ -32,7 +59,7 @@ const Products = db.define(
 		}
 	},
 	{
-		timestamps: false,
+		timestamps: false
 	}
 );
 

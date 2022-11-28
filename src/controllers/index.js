@@ -1,7 +1,7 @@
 const { userRegister } = require("./users.controllers")
 const { userLogin } = require("./auth.controllers")
-const { getAllProducts} = require("./products.controllers")
+const { getAllProducts, createNewProduct} = require("./products.controllers")
 
 module.exports = {
-    userRegister, userLogin, getAllProducts
+    userRegister, userLogin, getAllProducts, createNewProduct
 }
