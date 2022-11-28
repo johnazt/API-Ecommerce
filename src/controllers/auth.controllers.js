@@ -3,7 +3,6 @@ const { AuthServices } = require("../services");
 const userLogin = async (req, res, next) => {
   try {
     const credentials = req.body;
-    console.log(credentials.password);
     const result = await AuthServices.authenticate(credentials);
     if (result) {
       const { id, username, email } = result.result;

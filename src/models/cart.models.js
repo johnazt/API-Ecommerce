@@ -14,8 +14,10 @@ const Cart = db.define("cart", {
 		field: "user_id"
     },
     totalPrice: {
-        type: DataTypes.FLOAT,
-    }
+		type: DataTypes.INTEGER,
+		allowNull: false,
+		field: "total_price",
+	  },
 });
 
 module.exports = Cart;

@@ -37,8 +37,8 @@ const ProductsInOrder = db.define(
 			}
 		},
 		status: {
-			type: DataTypes.STRING,
-			defaultValue: ""
+			type: DataTypes.ENUM("pending", "completed"),
+			defaultValue: "pending"
 		}
 	},
 	{

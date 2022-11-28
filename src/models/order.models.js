@@ -9,8 +9,10 @@ const Orders = db.define("order", {
 		allowNull: false
 	},
     totalPrice: {
-        type: DataTypes.FLOAT,
-    },
+		type: DataTypes.FLOAT,
+		allowNull: false,
+		field: "total_price",
+	  },
 	userId: {
 		type: DataTypes.INTEGER,
 		allowNull: false,

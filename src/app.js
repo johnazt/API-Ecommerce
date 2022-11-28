@@ -5,7 +5,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
-const { userRoutes, authRoutes } = require("./routes")
+const { userRoutes, authRoutes, productRoutes } = require("./routes")
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1", userRoutes)
 app.use("/api/v1", authRoutes)
+app.use("/api/v1", productRoutes)
 
 app.use(handleError);
 module.exports = app;

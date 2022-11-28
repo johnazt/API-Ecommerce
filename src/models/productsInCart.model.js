@@ -37,8 +37,8 @@ const ProductsInCart = db.define(
 			}
 		},
 		status: {
-			type: DataTypes.STRING,
-			defaultValue: ""
+			type: DataTypes.ENUM("pending", "purchased"),
+			defaultValue: "pending"
 		}
 	},
 	{
