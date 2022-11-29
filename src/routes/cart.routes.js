@@ -1,6 +1,38 @@
 const { Router } = require("express");
 const { authenticate } = require("../middlewares");
-const { addProductToCart } = require("../controllers");
+const { addProductToCart, getProductsInCart } = require("../controllers");
+
+/**
+ * @openapi
+ * /api/v1/cart/{cartId}/products:
+ *   get:
+ *     security:
+*        - bearerAuth: []
+ *     summary: Obtiene todos los productos del carrito del usuario
+ *     tags: [Shopping Cart]
+ *     parameters:
+ *       - in: path
+ *         name: cartId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: cartId
+ *     responses:
+ *        200:
+ *          description: OK
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                          status:
+ *                            type: string
+ *                            example: OK
+ *                          data:
+ *                            type: array
+ *                            items: {}
+ */
 
 /**
  * @openapi
@@ -17,7 +49,7 @@ const { addProductToCart } = require("../controllers");
  *         schema:
  *           type: integer
  *           minimun: 1
- *           description: cart Id
+ *           description: cartId
  *     requestBody: 
  *          description: You need a productId, quantity and price to add a product in the cart
  *          required: true
@@ -45,5 +77,6 @@ const { addProductToCart } = require("../controllers");
 
 const router = Router();
 router.post("/cart/:cartId/addproduct", authenticate, addProductToCart)
+router.get("/cart/:cartId/products", authenticate, getProductsInCart)
 
 module.exports = router;

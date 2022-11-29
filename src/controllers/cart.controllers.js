@@ -15,4 +15,18 @@ const addProductToCart = async (req, res, next) => {
   }
 };
 
-module.exports = { addProductToCart };
+const getProductsInCart = async (req, res, next) => {
+  try {
+    const { cartId } = req.params;
+    const result = await CartServices.getProducts(cartId);
+    res.json(result)
+  } catch (error) {
+    next({
+      status: 400,
+      message: "missing data",
+      errorContent: error
+    })
+  }
+}
+
+module.exports = { addProductToCart, getProductsInCart };

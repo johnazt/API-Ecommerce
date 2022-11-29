@@ -24,7 +24,6 @@ const { authenticate } = require("../middlewares");
  *                          data:
  *                            type: array
  *                            items: {}
- *    
  */
 
 /**

@@ -21,7 +21,7 @@ const products = [
 const cart = [
 	{ userId: 1, totalPrice: 1000 },
 	{ userId: 2, totalPrice: 1000 },
-	{ userId: 1, totalPrice: 1000 }
+	{ userId: 3, totalPrice: 1000 }
 ];
 
 const order = [
