@@ -8,20 +8,20 @@ const Orders = db.define("order", {
 		primaryKey: true,
 		allowNull: false
 	},
-    totalPrice: {
+	totalPrice: {
 		type: DataTypes.FLOAT,
 		allowNull: false,
-		field: "total_price",
-	  },
+		field: "total_price"
+	},
 	userId: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
 		field: "user_id"
-    },
-    status: {
-        type: DataTypes.STRING,
-        defaultValue: "pendiente"
-    }
+	},
+	status: {
+		type: DataTypes.ENUM("complete", "pending"),
+		defaultValue: "pending"
+	}
 });
 
 module.exports = Orders;

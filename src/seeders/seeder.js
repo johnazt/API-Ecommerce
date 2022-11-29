@@ -1,13 +1,27 @@
 const db = require("../utils/database");
-const { Users, Products, Cart, Orders, ProductsInCart, ProductsInOrder } = require("../models");
+const {
+	Users,
+	Products,
+	Cart,
+	Orders,
+	ProductsInCart,
+	ProductsInOrder
+} = require("../models");
 const initModels = require("../models/initModels");
 
 initModels();
 
 const users = [
-	{ username: "Eren Yaeger", email: "eren@gmail.com", password: "1234" },
+	{ username: "Eren Yeager", email: "eren@gmail.com", password: "1234" },
 	{ username: "Levi Ackerman", email: "levi@gmail.com", password: "7777" },
-	{ username: "Erwin Smith", email: "erwin@gmail.com", password: "3333" }
+	{ username: "Erwin Smith", email: "erwin@gmail.com", password: "3333" },
+	{ username: "Armin Arlet", email: "armin@gmail.com", password: "4444" },
+	{ username: "Reiner Braun", email: "reiner@gmail.com", password: "5555" },
+	{ username: "Jean Kirschtein", email: "jean@gmail.com", password: "6666" },
+	{ username: "Mikasa Ackerman", email: "mikasa@gmail.com", password: "7777" },
+	{ username: "Historia Reiss", email: "historia@gmail.com", password: "8888" },
+	{ username: "Hange Zoe", email: "hange@gmail.com", password: "9999" },
+	{ username: "Falco Grice", email: "falco@gmail.com", password: "1111" }
 ];
 
 const products = [
@@ -24,23 +38,7 @@ const cart = [
 	{ userId: 3, totalPrice: 1000 }
 ];
 
-const order = [
-	{ userId: 1, status: "completed", totalPrice: 5000 },
-	{ userId: 2, status: "completed" , totalPrice: 5000},
-	{ userId: 3, status: "pending", totalPrice: 5000 }
-];
-
-const productsInCart = [
-    { cartId: 1, productId: 1, quantity: 3, price: 200}
-]
-
-const productsInOrder = [
-    { orderId: 1, productId: 1, quantity: 3, price: 200},
-    { orderId: 1, productId: 2, quantity: 1, price: 400},
-    { orderId: 1, productId: 4, quantity: 1, price: 400}
-]
-
-db.sync({ force: false}).then(() => {
+db.sync({ force: false }).then(() => {
 	console.log("Sincronizado");
 	users.forEach(async user => await Users.create(user));
 	setTimeout(() => {
@@ -49,13 +47,4 @@ db.sync({ force: false}).then(() => {
 	setTimeout(() => {
 		cart.forEach(async cartItem => await Cart.create(cartItem));
 	}, 200);
-	setTimeout(() => {
-		order.forEach(async orderItem => await Orders.create(orderItem));
-	}, 300);
-	setTimeout(() => {
-		productsInCart.forEach(async pic => await ProductsInCart.create(pic));
-	}, 400);
-	setTimeout(() => {
-		productsInOrder.forEach(async pio => await ProductsInOrder.create(pio));
-	}, 400);
 });
