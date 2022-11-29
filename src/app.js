@@ -6,6 +6,7 @@ const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
 const { userRoutes, authRoutes, productRoutes } = require("./routes")
+const transporter = require('./utils/mailer');
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -22,6 +23,9 @@ db
 	.sync({ force: false})
 	.then(() => console.log("Database is sincronized"))
 	.catch(error => console.log(error));
+
+transporter.verify()
+	.then(() => console.log('Nodemailer is ready'));
 
 app.get("/", (req, res) => {
 	console.log("Welcome to the server");
