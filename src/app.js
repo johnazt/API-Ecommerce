@@ -5,7 +5,7 @@ const cors = require("cors");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
-const { userRoutes, authRoutes, productRoutes } = require("./routes")
+const { userRoutes, authRoutes, productRoutes , cartRoutes} = require("./routes")
 const transporter = require('./utils/mailer');
 
 app.use(express.json());
@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1", userRoutes)
 app.use("/api/v1", authRoutes)
 app.use("/api/v1", productRoutes)
+app.use("/api/v1", cartRoutes)
 
 app.use(handleError);
 module.exports = app;
