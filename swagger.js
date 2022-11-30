@@ -6,9 +6,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Documentación Ecommerce API",
+      title: "Ecommerce API - Documentación - John Asto",
       version: "1.0.0",
-      description: "API que sirve para crear una base de datos para ecommerce",
+      description: "API que sirve para conectar base de datos de un Ecommerce con el cliente",
     },
   },
   apis: [
@@ -26,12 +26,8 @@ const options = {
 
 const swaggerSpec = swaggerJSDoc(options);
 
-// función para configruar la documentación
-// dos parametros --> app expres, port donde se ejecuta
 const swaggerDocs = (app, port) => {
-  // manejador para la ruta de nuestra documentación
   app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  // podemos definir nuestra documentación en formato json
   app.get("/api/v1/docs.json", (req, res) => {
     res.setHeader("ContentType", "application/json");
     res.send(swaggerSpec);
