@@ -36,38 +36,6 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
 
 /**
  * @openapi
- * /api/v1/cart/{cartId}/products:
- *   get:
- *     security:
-*        - bearerAuth: []
- *     summary: Obtiene todos los productos del carrito del usuario
- *     tags: [Shopping Cart]
- *     parameters:
- *       - in: path
- *         name: cartId
- *         required: true
- *         schema:
- *           type: integer
- *           minimun: 1
- *           description: cartId
- *     responses:
- *        200:
- *          description: OK
- *          content:
- *              application/json:
- *                  schema:
- *                    type: object
- *                    properties:
- *                          status:
- *                            type: string
- *                            example: OK
- *                          data:
- *                            type: array
- *                            items: {}
- */
-
-/**
- * @openapi
  * /api/v1/cart/{cartId}/addproduct:
  *   post:
  *     security:
@@ -105,6 +73,40 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                            items: 
  *                              $ref: "#/components/schemas/productToCart"
  */
+
+/**
+ * @openapi
+ * /api/v1/cart/{cartId}/products:
+ *   get:
+ *     security:
+*        - bearerAuth: []
+ *     summary: Obtiene todos los productos del carrito del usuario
+ *     tags: [Shopping Cart]
+ *     parameters:
+ *       - in: path
+ *         name: cartId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: cartId
+ *     responses:
+ *        200:
+ *          description: OK
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                          status:
+ *                            type: string
+ *                            example: OK
+ *                          data:
+ *                            type: array
+ *                            items: {}
+ */
+
+
 
 /**
  * @openapi

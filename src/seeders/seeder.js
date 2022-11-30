@@ -2,10 +2,7 @@ const db = require("../utils/database");
 const {
 	Users,
 	Products,
-	Cart,
-	Orders,
-	ProductsInCart,
-	ProductsInOrder
+	Cart
 } = require("../models");
 const initModels = require("../models/initModels");
 
