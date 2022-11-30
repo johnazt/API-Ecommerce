@@ -1,6 +1,23 @@
 const db = require("../utils/database");
 const { DataTypes } = require("sequelize");
 
+/**
+ *@openapi
+ *components:
+ *    schemas:
+ *     order:
+ *       type: object
+ *       properties:
+ *           userId: 
+ *             type: integer
+ *             example: 1
+ *securitySchemes:
+ *     bearerAuth: 
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ */
+
 const Orders = db.define(
 	"order",
 	{
@@ -14,10 +31,7 @@ const Orders = db.define(
 			type: DataTypes.FLOAT,
 			allowNull: false,
 			field: "total_price",
-			defaultValue: 0,
-			validate: {
-				min: 0
-			}
+			defaultValue: 0
 		},
 		userId: {
 			type: DataTypes.INTEGER,

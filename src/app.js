@@ -5,36 +5,40 @@ const cors = require("cors");
 const db = require("./utils/database");
 const initModels = require("./models/initModels");
 const handleError = require("./middlewares/error.middleware");
-const { userRoutes, authRoutes, productRoutes , cartRoutes} = require("./routes")
-const transporter = require('./utils/mailer');
+const {
+	userRoutes,
+	authRoutes,
+	productRoutes,
+	cartRoutes,
+	orderRoutes
+} = require("./routes");
+const transporter = require("./utils/mailer");
 
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors());
 
-initModels()
+initModels();
 
-db
-	.authenticate()
+db.authenticate()
 	.then(() => console.log("Successful Authentication"))
 	.catch(error => console.log(error));
 
-db
-	.sync({ force: false})
+db.sync({ force: false })
 	.then(() => console.log("Database is sincronized"))
 	.catch(error => console.log(error));
 
-transporter.verify()
-	.then(() => console.log('Nodemailer is ready'));
+transporter.verify().then(() => console.log("Nodemailer is ready"));
 
 app.get("/", (req, res) => {
 	console.log("Welcome to the server");
 });
 
-app.use("/api/v1", userRoutes)
-app.use("/api/v1", authRoutes)
-app.use("/api/v1", productRoutes)
-app.use("/api/v1", cartRoutes)
+app.use("/api/v1", userRoutes);
+app.use("/api/v1", authRoutes);
+app.use("/api/v1", productRoutes);
+app.use("/api/v1", cartRoutes);
+app.use("/api/v1", orderRoutes);
 
 app.use(handleError);
 module.exports = app;
