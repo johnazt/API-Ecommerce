@@ -1,6 +1,38 @@
 const { Router } = require("express");
 const { authenticate } = require("../middlewares");
-const { addProductToCart, getProductsInCart } = require("../controllers");
+const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart } = require("../controllers");
+
+/**
+ * @openapi
+ * /api/v1/cart:
+ *   post:
+ *     security:
+*        - bearerAuth: []
+ *     summary: Crea un nuevo carrito de compras
+ *     tags: [Shopping Cart]
+ *     requestBody: 
+ *          description: You need a userId to create a new cart
+ *          required: true
+ *          content: 
+ *            application/json:
+ *              schema:
+ *                  $ref: "#/components/schemas/newCartUser"
+ *     responses:
+ *        200:
+ *          description: added
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                          status:
+ *                            type: string
+ *                            example: OK
+ *                          data:
+ *                            type: array
+ *                            items: 
+ *                              $ref: "#/components/schemas/newCartUser"
+ */
 
 /**
  * @openapi
@@ -74,9 +106,49 @@ const { addProductToCart, getProductsInCart } = require("../controllers");
  *                              $ref: "#/components/schemas/productToCart"
  */
 
-
+/**
+ * @openapi
+ * /api/v1/cart/{cartId}/buy:
+ *   put:
+ *     security:
+*        - bearerAuth: []
+ *     summary: Compra el carrito y cambio el estado de los productos a purchased
+ *     tags: [Shopping Cart]
+ *     requestBody:
+ *       description: To buy a cart you need your username and email
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/buyCart"
+ *     parameters:
+ *       - in: path
+ *         name: cartId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: cartId
+ *     responses:
+ *        200:
+ *          description: added
+ *          content:
+ *              application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                          status:
+ *                            type: string
+ *                            example: OK
+ *                          data:
+ *                            type: array
+ *                            items: 
+ *                              $ref: "#/components/schemas/buyCart"
+ */
 const router = Router();
+router.post("/cart", authenticate, createUserCart)
 router.post("/cart/:cartId/addproduct", authenticate, addProductToCart)
 router.get("/cart/:cartId/products", authenticate, getProductsInCart)
+router.put("/cart/:cartId/buy", authenticate, buyProductsInCart)
 
 module.exports = router;

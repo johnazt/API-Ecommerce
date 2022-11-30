@@ -4,7 +4,7 @@ const transporter = require("../utils/mailer");
 
 const userRegister = async (req, res, next) => {
 	try {
-    const newUser = req.body;
+		const newUser = req.body;
 		const result = await UserServices.create(newUser);
 		res.status(201).json(result);
 		// Here we send emails
@@ -25,6 +25,20 @@ const userRegister = async (req, res, next) => {
 	}
 };
 
+const getAllUsers = async (req, res, next) => {
+	try {
+		const result = await UserServices.getUsers();
+		res.json(result);
+	} catch (error) {
+		next({
+			status: 400,
+			errorContent: error,
+			message: "Faltan datos"
+		});
+	}
+};
+
 module.exports = {
-	userRegister
+	userRegister,
+	getAllUsers
 };

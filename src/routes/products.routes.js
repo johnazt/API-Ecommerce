@@ -59,7 +59,7 @@ const { authenticate } = require("../middlewares");
  */
 
 const router = Router();
-router.get("/products", getAllProducts);
+router.get("/products", authenticate, getAllProducts);
 router.post("/products", authenticate, createNewProduct)
 
 module.exports = router;

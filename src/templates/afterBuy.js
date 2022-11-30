@@ -117,7 +117,7 @@ const welcomeTemplate = (username) => `
 <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 15px; padding-bottom: 15px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
 <table border="0" cellpadding="0" cellspacing="0" class="menu_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
-<td class="pad" style="color:#072b52;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:13px;letter-spacing:2px;text-align:center;">
+<td class="pad" style="color:#a63446;font-family:'Lato', Tahoma, Verdana, Segoe, sans-serif;font-size:13px;letter-spacing:2px;text-align:center;">
 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="alignment" style="text-align:center;font-size:0px;">
@@ -139,7 +139,7 @@ const welcomeTemplate = (username) => `
 <tbody>
 <tr>
 <td>
-<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #072b52; color: #000000; width: 600px;" width="600">
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #a63446; color: #000000; width: 600px;" width="600">
 <tbody>
 <tr>
 <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
@@ -175,7 +175,7 @@ const welcomeTemplate = (username) => `
 <table border="0" cellpadding="0" cellspacing="0" class="heading_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="text-align:center;width:100%;padding-top:35px;">
-<h1 style="margin: 0; color: #072b52; direction: ltr; font-family: 'Lora', Georgia, serif; font-size: 50px; font-weight: normal; letter-spacing: 1px; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><strong>Thanks for your Buy</strong></h1>
+<h1 style="margin: 0; color: #a63446; direction: ltr; font-family: 'Lora', Georgia, serif; font-size: 50px; font-weight: normal; letter-spacing: 1px; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;"><strong>Thanks for your Buy</strong></h1>
 </td>
 </tr>
 </table>
@@ -205,7 +205,7 @@ const welcomeTemplate = (username) => `
 <p style="margin: 0; font-size: 16px; text-align: center; mso-line-height-alt: 24px;"><span style="font-size:16px;">It's a pleasure to have you as our client.</span></p>
 <p style="margin: 0; font-size: 16px; text-align: center; mso-line-height-alt: 18px;"> </p>
 <p style="margin: 0; font-size: 16px; text-align: center; mso-line-height-alt: 24px;"><span style="font-size:16px;">We would like to take this time to thank you</span></p>
-<p style="margin: 0; font-size: 16px; text-align: center; mso-line-height-alt: 24px;"><span style="font-size:16px;">and we hope to see you again soon.</span></p>
+<p style="margin: 0; font-size: 16px; text-align: center; mso-line-height-alt: 24px;"><span style="font-size:16px;">and we hope to see you again soon.<a href="https://render-ecommerce.onrender.com/api/v1/docs" target="_blank">ECOMMERCE API</a>.</span></p>
 </div>
 </div>
 </td>
@@ -240,7 +240,7 @@ const welcomeTemplate = (username) => `
 <table border="0" cellpadding="0" cellspacing="0" class="heading_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
 <tr>
 <td class="pad" style="padding-bottom:35px;padding-left:5px;padding-right:5px;padding-top:30px;text-align:center;width:100%;">
-<h1 style="margin: 0; color: #072b52; direction: ltr; font-family: 'Lora', Georgia, serif; font-size: 19px; font-weight: normal; letter-spacing: 1px; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">Keep sharing with us by tagging <strong>#Ecommerce API</strong></h1>
+<h1 style="margin: 0; color: #a63446; direction: ltr; font-family: 'Lora', Georgia, serif; font-size: 19px; font-weight: normal; letter-spacing: 1px; line-height: 120%; text-align: center; margin-top: 0; margin-bottom: 0;">Keep sharing with us by tagging <strong>#Ecommerce API</strong></h1>
 </td>
 </tr>
 </table>

@@ -14,9 +14,21 @@ const { DataTypes } = require("sequelize");
  *           quantity:
  *             type: integer
  *             example: 2
- *           price: 
+ *     newCartUser:
+ *       type: object
+ *       properties:
+ *           userId: 
  *             type: integer
- *             example: 1000
+ *             example: 1
+ *     buyCart:
+ *       type: object
+ *       properties:
+ *           username: 
+ *             type: string
+ *             example: Juan Perez
+ *           email: 
+ *             type: string
+ *             example: juan@gmail.com
  *securitySchemes:
  *     bearerAuth: 
  *       type: http
@@ -40,6 +52,7 @@ const Cart = db.define("cart", {
     totalPrice: {
 		type: DataTypes.INTEGER,
 		allowNull: false,
+		defaultValue: 0,
 		field: "total_price",
 	  },
 });

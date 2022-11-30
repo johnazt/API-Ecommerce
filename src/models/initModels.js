@@ -14,7 +14,7 @@ const initModels = () => {
 
 	//Un usuario solo puede tener un carrito, y un carrito le pertenece a un usuario
 	Users.hasOne(Cart, { as: "cart", foreignKey: "user_id" });
-	Cart.belongsTo(Users, { as: "user", foreignKey: "user_id" });
+	Cart.belongsTo(Users, { as: "buyer", foreignKey: "user_id" });
 
 	//Un usuario puede crear muchas ordenes y una orden le pertenece a un usuario
 	Orders.belongsTo(Users, { as: "user", foreignKey: "user_id" });

@@ -9,6 +9,21 @@ class UserServices {
       throw error;
     }
   }
+
+  static async getUsers() {
+    try {
+      const result = await Users.findAll({
+        attributes: {
+          exclude: ["password"]
+        }
+      });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+
 }
 
 module.exports = UserServices;
