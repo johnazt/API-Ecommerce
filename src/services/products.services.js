@@ -4,7 +4,7 @@ class ProductsServices {
   static async getProducts() {
     try {
       const result = await Products.findAll({
-        attributes: ["name", "availableQty","price"],
+        attributes: ["id","name","price", "availableQty"],
         include: {
           model: Users,
           as: "user",
