@@ -4,19 +4,20 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
 
 /**
  * @openapi
- * /api/v1/cart:
+ * /api/v1/cart/{userId}:
  *   post:
  *     security:
 *        - bearerAuth: []
  *     summary: Crea un nuevo carrito de compras
  *     tags: [Shopping Cart]
- *     requestBody: 
- *          description: You need a userId to create a new cart
- *          required: true
- *          content: 
- *            application/json:
- *              schema:
- *                  $ref: "#/components/schemas/newCartUser"
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: userId
  *     responses:
  *        200:
  *          description: added
@@ -148,7 +149,7 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                              $ref: "#/components/schemas/buyCart"
  */
 const router = Router();
-router.post("/cart", authenticate, createUserCart)
+router.post("/cart/:userId", authenticate, createUserCart)
 router.post("/cart/:cartId/addproduct", authenticate, addProductToCart)
 router.get("/cart/:cartId/products", authenticate, getProductsInCart)
 router.put("/cart/:cartId/buy", authenticate, buyProductsInCart)

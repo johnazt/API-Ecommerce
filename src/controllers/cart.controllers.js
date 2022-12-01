@@ -4,8 +4,8 @@ const transporter = require("../utils/mailer")
 
 const createUserCart = async (req, res, next) => {
   try {
-    const newCart = req.body
-    const result = await CartServices.createCart(newCart)
+    const { userId } = req.params
+    const result = await CartServices.createCart({userId})
     res.json(result)
   } catch (error) {
     next({
