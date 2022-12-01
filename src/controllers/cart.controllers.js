@@ -47,10 +47,10 @@ const getProductsInCart = async (req, res, next) => {
 
 const buyProductsInCart = async (req, res, next) => {
   try {
-    const { cartId , userId } = req.params;
+    const { cartId, userId } = req.params;
     const dataUser = req.body
-    const result = await CartServices.buyCart(cartId, userId)
-    res.json(result)
+    const order = await CartServices.buyCart(cartId, userId)
+    res.json({order, message: "The cart has been purchased"})
     transporter.sendMail({
 			from: "<john.azt.data@gmail.com>",
 			to: dataUser.email,

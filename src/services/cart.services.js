@@ -55,7 +55,7 @@ class CartServices {
 				{ where: { cartId } }
 			);
 			const order = await Orders.create({ userId });
-			return { result, order };
+			return order;
 		} catch (error) {
 			throw error;
 		}

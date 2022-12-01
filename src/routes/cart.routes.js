@@ -2,13 +2,14 @@ const { Router } = require("express");
 const { authenticate } = require("../middlewares");
 const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart } = require("../controllers");
 
+//CREATE A NEW CART
 /**
  * @openapi
  * /api/v1/cart/{userId}:
  *   post:
  *     security:
 *        - bearerAuth: []
- *     summary: Crea un nuevo carrito de compras
+ *     summary: Crea un nuevo carrito de compras para el usuario ingresado en el parametro
  *     tags: [Shopping Cart]
  *     parameters:
  *       - in: path
@@ -35,13 +36,14 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                              $ref: "#/components/schemas/newCartUser"
  */
 
+// ADD A NEW PRODUCT IN CART
 /**
  * @openapi
  * /api/v1/cart/{cartId}/addproduct:
  *   post:
  *     security:
 *        - bearerAuth: []
- *     summary: Añade un nuevo producto al carrito
+ *     summary: Añade un nuevo producto al carrito, colocando el id del carrito creado
  *     tags: [Shopping Cart]
  *     parameters:
  *       - in: path
@@ -52,7 +54,7 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *           minimun: 1
  *           description: cartId
  *     requestBody: 
- *          description: You need a productId, quantity and price to add a product in the cart
+ *          description: Necesitas ingresar en el body las propiedades productId y quantity para añadir un nuevo producto al carrito de compras
  *          required: true
  *          content: 
  *            application/json:
@@ -72,16 +74,17 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                          data:
  *                            type: array
  *                            items: 
- *                              $ref: "#/components/schemas/productToCart"
+ *                              $ref: "#/components/schemas/productToCartResponses"
  */
 
+// SHOW THE PRODUCTS IN THE CART 
 /**
  * @openapi
  * /api/v1/cart/{cartId}/products:
  *   get:
  *     security:
 *        - bearerAuth: []
- *     summary: Obtiene todos los productos del carrito del usuario
+ *     summary: Obtiene todos los productos del carrito con el id brindado como parametro
  *     tags: [Shopping Cart]
  *     parameters:
  *       - in: path
@@ -104,26 +107,26 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                            example: OK
  *                          data:
  *                            type: array
- *                            items: {}
+ *                            items: 
+ *                              $ref: "#/components/schemas/getProductResponse"
  */
 
-
-
+// BUY A CART 
 /**
  * @openapi
- * /api/v1/cart/{cartId}/buy:
+ * /api/v1/:userId/:cartId/buy:
  *   put:
  *     security:
 *        - bearerAuth: []
- *     summary: Compra el carrito y cambio el estado de los productos a purchased
+ *     summary: Compra el carrito, cambia el estado de los productos en el carrito a purchased y crea la orden de compra.
  *     tags: [Shopping Cart]
  *     requestBody:
- *       description: To buy a cart you need your username and email
+ *       description: Para realizar una compra se necesita ingresar en los parametros el id del usuario y el id del carrito. En el body se necesita el username y email del comprador para que se le envie un mensaje personalizado de confirmación a su correo electrónico.
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: "#/components/schemas/buyCart"
+ *             $ref: "#/components/schemas/sendUserData"
  *     parameters:
  *       - in: path
  *         name: cartId
@@ -132,6 +135,13 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *           type: integer
  *           minimun: 1
  *           description: cartId
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: userId
  *     responses:
  *        200:
  *          description: added
@@ -146,8 +156,9 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                          data:
  *                            type: array
  *                            items: 
- *                              $ref: "#/components/schemas/buyCart"
+ *                              $ref: "#/components/schemas/buyResponse"
  */
+
 const router = Router();
 router.post("/cart/:userId", authenticate, createUserCart)
 router.post("/cart/:cartId/addproduct", authenticate, addProductToCart)
