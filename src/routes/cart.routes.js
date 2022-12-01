@@ -112,7 +112,7 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
 // BUY A CART 
 /**
  * @openapi
- * /api/v1/:userId/:cartId/buy:
+ * /api/v1/{userId}/{cartId}/buy:
  *   put:
  *     security:
 *        - bearerAuth: []
