@@ -127,19 +127,19 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *             $ref: "#/components/schemas/sendUserData"
  *     parameters:
  *       - in: path
- *         name: cartId
- *         required: true
- *         schema:
- *           type: integer
- *           minimun: 1
- *           description: cartId
- *       - in: path
  *         name: userId
  *         required: true
  *         schema:
  *           type: integer
  *           minimun: 1
  *           description: userId
+ *       - in: path
+ *         name: cartId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: cartId
  *     responses:
  *        200:
  *          description: added
