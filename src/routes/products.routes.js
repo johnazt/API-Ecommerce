@@ -2,6 +2,7 @@ const { Router } = require("express");
 const { getAllProducts, createNewProduct } = require("../controllers");
 const { authenticate } = require("../middlewares");
 
+// GET ALL PRODUCTS
 /**
  * @openapi
  * /api/v1/products:
@@ -23,9 +24,11 @@ const { authenticate } = require("../middlewares");
  *                            example: OK
  *                          data:
  *                            type: array
- *                            items: {}
+ *                            items: 
+ *                              $ref: "#/components/schemas/getProducts"
  */
 
+// CREATE A NEW PRODUCT
 /**
  * @openapi
  * /api/v1/products:
@@ -53,9 +56,7 @@ const { authenticate } = require("../middlewares");
  *                            type: string
  *                            example: OK
  *                          data:
- *                            type: array
- *                            items: 
- *                              $ref: "#/components/schemas/product"
+ *                              $ref: "#/components/schemas/productResponse"
  */
 
 const router = Router();

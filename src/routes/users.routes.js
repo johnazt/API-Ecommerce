@@ -4,6 +4,7 @@ const { authenticate } = require("../middlewares");
 
 const router = Router();
 
+// REGISTER USER
 /**
  * @openapi
  * /api/v1/users:
@@ -11,7 +12,7 @@ const router = Router();
  *     summary: Registro de nuevo usuario en el ecommerce
  *     tags: [Users]
  *     requestBody:
- *       description: To register a new user you need a username,    email and password
+ *       description: Para registrar a un nuevo usuario se necesita un username, email y password.
  *       required: true
  *       content:
  *         application/json:
@@ -31,10 +32,11 @@ const router = Router();
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: "#/components/schemas/register"
+ *                     $ref: "#/components/schemas/registerResponse"
  *
  */
 
+// GET ALL USERS
 /**
  * @openapi
  * /api/v1/users:
@@ -56,7 +58,8 @@ const router = Router();
  *                            example: OK
  *                          data:
  *                            type: array
- *                            items: {}
+ *                            items:
+ *                               $ref: "#/components/schemas/getUsersResponse"
  */
 
 router.post("/users", userRegister);

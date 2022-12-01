@@ -106,8 +106,6 @@ const { addProductToCart, getProductsInCart, buyProductsInCart, createUserCart }
  *                            type: string
  *                            example: OK
  *                          data:
- *                            type: array
- *                            items: 
  *                              $ref: "#/components/schemas/getProductResponse"
  */
 

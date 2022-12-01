@@ -29,7 +29,7 @@ const router = Router();
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: "#/components/schemas/login"
+ *                     $ref: "#/components/schemas/loginResponse"
  *
  */
 

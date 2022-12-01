@@ -5,9 +5,48 @@ const { DataTypes } = require("sequelize");
  *@openapi
  *components:
  *    schemas:
+ *     getProducts: 
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: iPhone13
+ *         availableQty:
+ *           type: integer
+ *           example: 100
+ *         price:
+ *           type: integer
+ *           example: 300
+ *         user: 
+ *           type: object
+ *           properties:
+ *             username:
+ *               type: string
+ *               example: Juan Perez
  *     product:
  *       type: object
  *       properties:
+ *           name: 
+ *             type: string
+ *             example: Lenovo Monitor
+ *           price: 
+ *             type: integer
+ *             example: 2000
+ *           availableQty:
+ *             type: integer
+ *             example: 100
+ *           userId:
+ *             type: integer
+ *             example: 1
+ *     productResponse:
+ *       type: object
+ *       properties:
+ *           status:
+ *             type: string
+ *             example: in stock
+ *           id:
+ *             type: integer
+ *             example: 1
  *           name: 
  *             type: string
  *             example: Lenovo Monitor
