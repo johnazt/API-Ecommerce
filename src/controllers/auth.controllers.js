@@ -13,7 +13,7 @@ const userLogin = async (req, res, next) => {
     } else if (result === null) {
       res.status(400).json({
         message:
-          "Somethings wrong",
+          "Invalid email or password",
       });
     } else {
       res.status(400).json({

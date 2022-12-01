@@ -28,7 +28,7 @@ const { DataTypes } = require("sequelize");
  */
 
 const Orders = db.define(
-	"order",
+	"orders",
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -49,12 +49,9 @@ const Orders = db.define(
 		},
 		status: {
 			type: DataTypes.ENUM("completed", "pending"),
-			defaultValue: "pending"
+			defaultValue: "completed"
 		}
 	},
-	{
-		timestamps: false
-	}
 );
 
 module.exports = Orders;
