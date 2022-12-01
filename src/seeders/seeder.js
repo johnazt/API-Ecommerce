@@ -22,11 +22,11 @@ const users = [
 ];
 
 const products = [
-	{ name: "iPhone 13", price: "300", availableQty: 100, userId: 1 },
-	{ name: "Macbook Air 13", price: "500", availableQty: 200, userId: 1 },
-	{ name: "TV Samsung", price: "200", availableQty: 250, userId: 2 },
-	{ name: "Nintendo Switch", price: "200", availableQty: 50, userId: 2 },
-	{ name: "Audifonos Sony", price: "50", availableQty: 350, userId: 3 }
+	{ name: "iPhone 13", price: "300", availableQty: 100, userId: 1 , image: ""},
+	{ name: "Macbook Air 13", price: "500", availableQty: 200, userId: 1 , image: ""},
+	{ name: "TV Samsung", price: "200", availableQty: 250, userId: 2 , image: ""},
+	{ name: "Nintendo Switch", price: "200", availableQty: 50, userId: 2 , image: ""},
+	{ name: "Audifonos Sony", price: "50", availableQty: 350, userId: 3 , image: ""}
 ];
 
 const cart = [

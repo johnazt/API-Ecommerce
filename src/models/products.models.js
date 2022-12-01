@@ -17,6 +17,9 @@ const { DataTypes } = require("sequelize");
  *         price:
  *           type: integer
  *           example: 300
+ *         image: 
+ *           type: string
+ *           example: https://images.lider.cl/wmtcl?source=url[file:/productos/1142536a.jpg]&sink
  *         user: 
  *           type: object
  *           properties:
@@ -28,7 +31,7 @@ const { DataTypes } = require("sequelize");
  *       properties:
  *           name: 
  *             type: string
- *             example: Lenovo Monitor
+ *             example: Macbook Pro
  *           price: 
  *             type: integer
  *             example: 2000
@@ -38,6 +41,9 @@ const { DataTypes } = require("sequelize");
  *           userId:
  *             type: integer
  *             example: 1
+ *           image: 
+ *             type: string
+ *             example: https://images.lider.cl/wmtcl?source=url[file:/productos/1142536a.jpg]&sink
  *     productResponse:
  *       type: object
  *       properties:
@@ -49,7 +55,7 @@ const { DataTypes } = require("sequelize");
  *             example: 1
  *           name: 
  *             type: string
- *             example: Lenovo Monitor
+ *             example: Macbook Air
  *           price: 
  *             type: integer
  *             example: 2000
@@ -59,6 +65,9 @@ const { DataTypes } = require("sequelize");
  *           userId:
  *             type: integer
  *             example: 1
+ *           image: 
+ *             type: string
+ *             example: https://images.lider.cl/wmtcl?source=url[file:/productos/1142536a.jpg]&sink
  *securitySchemes:
  *     bearerAuth: 
  *       type: http
@@ -95,6 +104,9 @@ const Products = db.define(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			field: "user_id"
+		},
+		image: {
+			type: DataTypes.STRING,
 		}
 	},
 	{
