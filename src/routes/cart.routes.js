@@ -152,6 +152,6 @@ const router = Router();
 router.post("/cart/:userId", authenticate, createUserCart)
 router.post("/cart/:cartId/addproduct", authenticate, addProductToCart)
 router.get("/cart/:cartId/products", authenticate, getProductsInCart)
-router.put("/cart/:cartId/buy", authenticate, buyProductsInCart)
+router.put("/:userId/:cartId/buy", authenticate, buyProductsInCart)
 
 module.exports = router;

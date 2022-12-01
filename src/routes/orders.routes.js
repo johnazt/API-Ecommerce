@@ -1,25 +1,26 @@
 const { Router } = require("express");
 const { authenticate } = require("../middlewares");
-const { createNewOrder } = require("../controllers");
+const { getUserOrders } = require("../controllers");
 
 /**
  * @openapi
- * /api/v1/order:
- *   post:
+ * /api/v1/orders/{userId}:
+ *   get:
  *     security:
 *        - bearerAuth: []
- *     summary: Crea una nueva orden
+ *     summary: Obtiene todas los ordenes del usuario brindado en el parametro
  *     tags: [Orders]
- *     requestBody: 
- *          description: You need a userId
- *          required: true
- *          content: 
- *            application/json:
- *              schema:
- *                  $ref: "#/components/schemas/order"
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: integer
+ *           minimun: 1
+ *           description: id del usuario
  *     responses:
  *        200:
- *          description: created
+ *          description: OK
  *          content:
  *              application/json:
  *                  schema:
@@ -30,13 +31,12 @@ const { createNewOrder } = require("../controllers");
  *                            example: OK
  *                          data:
  *                            type: array
- *                            items: 
- *                              $ref: "#/components/schemas/order"
+ *                            items:
+ *                               $ref: "#/components/schemas/orders"
  */
-
 
 const router = Router();
 
-router.post("/order", authenticate, createNewOrder);
+router.get("/orders/:userId", authenticate, getUserOrders);
 
 module.exports = router;

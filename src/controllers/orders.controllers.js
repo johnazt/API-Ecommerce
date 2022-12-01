@@ -1,9 +1,9 @@
 const { OrderServices } = require("../services");
 
-const createNewOrder = async (req, res, next) => {
-    try {
-        const newOrder  = req.body;
-        const result = await OrderServices.createOrder(newOrder )
+const getUserOrders  = async (req, res, next) => {
+	try {
+		const {userId} = req.params
+        const result = await OrderServices.getOrder(userId)
         res.json(result)
 	} catch (error) {
 		next({
@@ -15,4 +15,4 @@ const createNewOrder = async (req, res, next) => {
 };
 
 
-module.exports = {createNewOrder}
+module.exports = {getUserOrders}

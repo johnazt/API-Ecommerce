@@ -5,12 +5,21 @@ const { DataTypes } = require("sequelize");
  *@openapi
  *components:
  *    schemas:
- *     order:
+ *     orders:
  *       type: object
  *       properties:
- *           userId: 
- *             type: integer
- *             example: 1
+ *             id: 
+ *                type: integer
+ *                example: 1
+ *             totalPrice:
+ *                type: integer
+ *                example: 1000
+ *             userId: 
+ *                type: integer
+ *                example: 1
+ *             status: 
+ *                type: string
+ *                example: "pending"
  *securitySchemes:
  *     bearerAuth: 
  *       type: http
@@ -39,7 +48,7 @@ const Orders = db.define(
 			field: "user_id"
 		},
 		status: {
-			type: DataTypes.ENUM("complete", "pending"),
+			type: DataTypes.ENUM("completed", "pending"),
 			defaultValue: "pending"
 		}
 	},

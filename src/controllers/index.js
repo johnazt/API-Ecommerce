@@ -7,7 +7,7 @@ const {
 	buyProductsInCart,
 	createUserCart
 } = require("./cart.controllers");
-const { createNewOrder} = require("./orders.controllers")
+const { getUserOrders} = require("./orders.controllers")
 
 module.exports = {
 	userRegister,
@@ -19,5 +19,5 @@ module.exports = {
 	getProductsInCart,
 	buyProductsInCart,
 	createUserCart,
-	createNewOrder
+	getUserOrders
 };
